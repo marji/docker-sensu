@@ -6,7 +6,7 @@ RUN apt-get install -y wget
 RUN wget -q http://repos.sensuapp.org/apt/pubkey.gpg -O- | apt-key add -
 RUN echo "deb http://repos.sensuapp.org/apt sensu main" > /etc/apt/sources.list.d/sensu.list
 RUN apt-get update
-RUN RUNLEVEL=1 DEBIAN_FRONTEND=noninteractive apt-get install -y sensu=0.12.6-5 ca-certificates rabbitmq-server redis-server supervisor git-core
+RUN RUNLEVEL=1 DEBIAN_FRONTEND=noninteractive apt-get install -y sensu ca-certificates rabbitmq-server redis-server supervisor git-core
 RUN echo "sensu hold" | dpkg --set-selections
 
 RUN echo "EMBEDDED_RUBY=true" > /etc/default/sensu & ln -s /opt/sensu/embedded/bin/ruby /usr/bin/ruby
