@@ -7,11 +7,14 @@ SENSU_CONFIG_URL=${SENSU_CONFIG_URL:-}
 SENSU_CLIENT_CONFIG_URL=${SENSU_CLIENT_CONFIG_URL:-}
 SENSU_CHECKS_CONFIG_URL=${SENSU_CHECKS_CONFIG_URL:-}
 
+# we mount /config while starting, it should exists.
+[ -d /config/sensu ] || mkdir -p /config/sensu
+
 if [ ! -z "$SENSU_CONFIG_URL" ] ; then
-    wget --no-check-certificate -O /etc/sensu/config.json $SENSU_CONFIG_URL
+    wget --no-check-certificate -O /config/sensu/config.json $SENSU_CONFIG_URL
 else
-    if [ ! -e "/etc/sensu/config.json" ] ; then
-        cat << EOF > /etc/sensu/config.json
+    if [ ! -e "/config/sensu/config.json" ] ; then
+        cat << EOF > /config/sensu/config.json
 {
   "rabbitmq": {
     "port": 5672,
