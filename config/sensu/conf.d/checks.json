@@ -1,5 +1,35 @@
 {
   "checks": {
+    "check_load": {
+      "handlers": [ "default" ],
+      "command": "/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20",
+      "interval": 60,
+      "subscribers": [ "soe" ]
+    },
+    "check_swap": {
+      "handlers": [ "default" ],
+      "command": "/usr/lib/nagios/plugins/check_swap -w 20 -c 10",
+      "interval": 60,
+      "subscribers": [ "soe" ]
+    },
+    "check_root_fs": {
+      "handlers": [ "default" ],
+      "command": "/usr/lib/nagios/plugins/check_disk -w 3000 -c 1000 -p /",
+      "interval": 60,
+      "subscribers": [ "soe" ]
+    },
+    "check_total_procs": {
+      "handlers": [ "default" ],
+      "command": "/usr/lib/nagios/plugins/check_procs -w 150 -c 200",
+      "interval": 60,
+      "subscribers": [ "soe" ]
+    },
+    "check_users": {
+      "handlers": [ "default" ],
+      "command": "/usr/lib/nagios/plugins/check_users -w 10 -c 15",
+      "interval": 60,
+      "subscribers": [ "soe" ]
+    },
     "sensu-rabbitmq-beam": {
       "handlers": [
         "default"
