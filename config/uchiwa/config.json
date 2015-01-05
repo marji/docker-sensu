@@ -1,7 +1,7 @@
 {
   "sensu": [
     {
-      "name": "Example",
+      "name": "sensu POC",
       "host": "localhost",
       "port": 4567,
       "ssl": false,
