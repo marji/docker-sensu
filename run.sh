@@ -1,4 +1,16 @@
 #!/bin/sh
+
+# temporarily removing config support, just run supervisord,
+# as we mount /config/sensu
+if [ ! -d /config/sensu ]; then
+  echo "/config/sensu directory does not exist."
+  echo "exaple: docker run --name=sensu -v  ~/docker/docker-sensu/config:/config -d marji/sensu"
+  exit 1
+fi
+
+/usr/bin/supervisord
+exit $?
+
 DASHBOARD_USER=${DASHBOARD_USER:-admin}
 DASHBOARD_PASS=${DASHBOARD_PASS:-sensu}
 SENSU_HOST=${SENSU_HOST:-localhost}
