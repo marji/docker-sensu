@@ -6,12 +6,6 @@
       "interval": 60,
       "subscribers": [ "soe" ]
     },
-    "check_swap": {
-      "handlers": [ "default" ],
-      "command": "/usr/lib/nagios/plugins/check_swap -w 20 -c 10",
-      "interval": 60,
-      "subscribers": [ "soe" ]
-    },
     "check_root_fs": {
       "handlers": [ "default" ],
       "command": "/usr/lib/nagios/plugins/check_disk -w 3000 -c 1000 -p /",
