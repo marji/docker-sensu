@@ -1,8 +1,9 @@
 FROM ubuntu:precise
-MAINTAINER Arcus "http://arcus.io"
+MAINTAINER Marji "http://morpht.com"
 
 RUN apt-get -qq update
 RUN apt-get install -y wget
+RUN apt-get install -y nagios-plugins
 RUN wget -q http://repos.sensuapp.org/apt/pubkey.gpg -O- | apt-key add -
 RUN echo "deb http://repos.sensuapp.org/apt sensu main" > /etc/apt/sources.list.d/sensu.list
 RUN apt-get update

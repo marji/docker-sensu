@@ -2,6 +2,6 @@
     "client": {
       "name": "sensu-server",
       "address": "127.0.0.1",
-      "subscriptions": [ "default", "sensu" ]
+      "subscriptions": [ "default", "sensu", "soe" ]
     }
 }
